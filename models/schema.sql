@@ -9,6 +9,3 @@ CREATE TABLE products (
     inventory INT(200);
     PRIMARY KEY(id);
 )
-
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
