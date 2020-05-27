@@ -1,5 +1,14 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS deliverydb;
+CREATE DATABASE deliverydb;
+
+USE deliverydb;
+
+CREATE TABLE products (
+    id INT NOT NULL AUTO_INCREMENT;
+    name VARCHAR(30);
+    inventory INT(200);
+    PRIMARY KEY(id);
+)
 
 DROP DATABASE IF EXISTS testdb;
 CREATE DATABASE testdb;
