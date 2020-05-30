@@ -1,3 +1,30 @@
-.list-group-item {
-  line-height: 2.5;
+.head {
+  border-bottom: 2px solid blue;
+  height: 100px;
+  text-align: center;
+}
+
+#titleHead {
+  font-size: 75px;
+}
+
+.outerCon {
+  margin-top: 40px;
+  border: 2px solid black;
+
+}
+
+#products {
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.innerTop {
+  height: 150px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+
+p {
+  margin-bottom: 0;
 }
