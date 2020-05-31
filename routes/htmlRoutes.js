@@ -11,16 +11,16 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
-  // app.get("/example/:id", function(req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function(
-  //     dbExample
-  //   ) {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
+  //Load example page and pass in an example by id
+  app.get("/form/:id", function(req, res) {
+    db.products
+      .findOne({ where: { id: req.params.id } })
+      .then(function(dbproducts) {
+        res.render("indexForm", {
+          products: dbproducts
+        });
+      });
+  });
 
   // // Render 404 page for any unmatched routes
   // app.get("*", function(req, res) {

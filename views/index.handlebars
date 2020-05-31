@@ -8,63 +8,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 outerCon">
-            <p id="products">products</p>
+            <h3 id="products">products</h3>
             <div class="row">
                 {{#each products}}
                 <div class="col-md-4 innerTop">
-                    
-                        <a href="/views/indexForm.handlebars">{{id}} - {{name}}</a>
-                        <p>{{price}}</p>
-                        <p>{{inventory}}</p>
-                        <p>{{rating}} stars</p>
-                    
+                    <a href="/form/{{this.id}}">{{id}} - {{name}}</a>
+                    <p>${{price}}</p>
+                    <p>Only {{inventory}} left in stock. BUY NOW!</p>
+                    <p>{{rating}} stars</p>
                 </div>
                 {{/each}}
             </div>
-            {{!-- <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                        <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                    <div class="row">
-                        <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                        <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                        <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                        <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                        <div class="col-md-4 innerTop">
-                            <a href="indexForm.html">product name</a>
-                            <p>product info</p>
-                            <p>availability</p>
-                        </div>
-                    </div> --}}
         </div>
     </div>
 </div>
