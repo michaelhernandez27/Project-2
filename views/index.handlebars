@@ -1,21 +1,21 @@
 <header>
     <div class="row">
         <div class="col-md-12 head">
-            <h1 id="titleHead">Header</h1>
+            <h1 id="titleHead">Drone Drop</h1>
         </div>
     </div>
 </header>
 <div class="container">
     <div class="row">
         <div class="col-md-12 outerCon">
-            <h3 id="products">products</h3>
+            <h3 id="products">Products</h3>
             <div class="row">
                 {{#each products}}
                 <div class="col-md-4 innerTop">
-                    <a href="/form/{{this.id}}">{{id}} - {{name}}</a>
+                    <div id="productTitle">{{id}} - <a href="/form/{{this.id}}">{{name}}</a></div>
                     <p>${{price}}</p>
-                    <p>Only {{inventory}} left in stock. BUY NOW!</p>
-                    <p>{{rating}} stars</p>
+                    <p id="inventory">Only {{inventory}} left in stock. BUY NOW!</p>
+                    <p id="stars">{{rating}} stars</p>
                 </div>
                 {{/each}}
             </div>

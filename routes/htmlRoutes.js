@@ -19,6 +19,7 @@ module.exports = function(app) {
         res.render("indexForm", {
           products: dbproducts
         });
+        console.log(dbproducts);
       });
   });
 
