@@ -9,11 +9,13 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  // app.post("/api/examples", function(req, res) {
-  //   db.Example.create(req.body).then(function(dbExample) {
-  //     res.json(dbExample);
-  //   });
-  // });
+  app.post("/api/products/:id", function(req, res) {
+    db.products
+      .findOne({ where: { id: req.params.id } })
+      .then(function(dbproducts) {
+        res.json(dbproducts);
+      });
+  });
 
   // // Delete an example by id
   // app.delete("/api/examples/:id", function(req, res) {
