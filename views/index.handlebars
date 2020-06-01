@@ -13,7 +13,7 @@
                 {{#each products}}
                 <div class="col-md-4 innerTop">
                     <div id="productTitle">{{id}} - <a href="/form/{{this.id}}">{{name}}</a></div>
-                    <p>${{price}}</p>
+                    <p id="price">${{price}}</p>
                     <p id="inventory">Only {{inventory}} left in stock. BUY NOW!</p>
                     <p id="stars">{{rating}} stars</p>
                 </div>

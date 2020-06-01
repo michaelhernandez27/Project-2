@@ -3,8 +3,8 @@ body {
 }
 
 .head {
-  background-color: rgb(179, 179, 179);
-  border-bottom: 4px solid rgb(77, 77, 77);
+  background-color: rgb(221, 224, 227);
+  border-bottom: 6px solid rgb(77, 77, 77);
   height: 100px;
   text-align: center;
 }
@@ -19,7 +19,7 @@ body {
   margin-top: 40px;
   /* border: 1px solid black; */
   border-radius: 5px;
-  box-shadow: 5px 10px 5px rgb(28, 58, 84);
+  box-shadow: 8px 12px 8px rgb(28, 58, 84);
 
 }
 
@@ -33,6 +33,14 @@ p {
   margin-bottom: 25px;
   font-family: 'Titillium Web', sans-serif;
   font-size: 3.0rem;
+  background-color: rgb(184, 184, 184);
+  padding: 10px;
+  border-bottom: 1px solid rgb(61, 124, 179);
+  border-left: 1px solid rgb(61, 124, 179);
+  border-right: 1px solid rgb(61, 124, 179);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 2px 2px 8px rgb(74, 74, 74);
 }
 
 .innerTop {
@@ -50,12 +58,13 @@ p {
   border-right: 1px solid rgb(61, 124, 179);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  box-shadow: 2px 2px 8px rgb(74, 74, 74);
 }
 
 #inventory {
   border: 1px solid rgb(96, 0, 0);
-  background-color: rgb(223, 0, 0);
-  width: 75%;
+  background-color: rgb(210, 0, 0);
+  width: fit-content;
   padding-top: 0px;
   padding-left: 5px;
   padding-right: 5px;
@@ -64,8 +73,12 @@ p {
 
 #stars {
   border: 1px solid rgb(148, 126, 0);
-  background-color: gold;
-  width: 18%;
+  background-color: rgb(235, 200, 0);
+  width: fit-content;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+#price {
+  font-weight: bold;
 }
