@@ -1,4 +1,5 @@
 var db = require("../models");
+var axios = require("axios");
 
 module.exports = function(app) {
   // Get all examples
@@ -14,6 +15,22 @@ module.exports = function(app) {
       .findOne({ where: { id: req.params.id } })
       .then(function(dbproducts) {
         res.json(dbproducts);
+      });
+  });
+
+  app.get("/api/location-search", function(req, res) {
+    var city = req.params.city;
+    var url =
+      "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Philadelphia&destinations=" +
+      city +
+      "&key=AIzaSyB03QGGozKSq1zxY6mCsiG7tCmXqtDJZDk";
+    axios(url)
+      .then(function(response) {
+        console.log(response.data);
+        res.json(response.data);
+      })
+      .catch(function(err) {
+        console.log(err);
       });
   });
 

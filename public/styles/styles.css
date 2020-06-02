@@ -4,8 +4,7 @@ body {
 
 .head {
   background-color: rgb(221, 224, 227);
-  border-left: 100px solid rgb(77, 77, 77);
-  border-right: 100px solid rgb(77, 77, 77);
+  border-bottom: 5px solid rgb(114, 114, 114);
   height: 100px;
   text-align: center;
 }
@@ -24,21 +23,21 @@ body {
 }
 
 p {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
   font-family: 'Titillium Web', sans-serif;
 }
 
 #products {
   text-align: center;
+  font-size: 1.2em;
   margin-bottom: 20px;
   font-family: 'Titillium Web', sans-serif;
   font-size: 3.0rem;
   background-color: rgb(184, 184, 184);
   padding: 10px;
-  border-bottom: 1px solid rgb(61, 124, 179);
-  border-left: 1px solid rgb(61, 124, 179);
-  border-right: 1px solid rgb(61, 124, 179);
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: 2px 2px 8px rgb(74, 74, 74);
@@ -54,9 +53,9 @@ p {
 #productTitle {
   background-color: rgb(184, 184, 184);
   padding: 10px;
-  border-bottom: 1px solid rgb(61, 124, 179);
-  border-left: 1px solid rgb(61, 124, 179);
-  border-right: 1px solid rgb(61, 124, 179);
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: 2px 2px 8px rgb(74, 74, 74);
@@ -85,4 +84,5 @@ p {
 
 #price {
   font-weight: bold;
+  font-size: 1.5rem;
 }
