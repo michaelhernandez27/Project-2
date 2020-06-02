@@ -98,10 +98,10 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-var city = userInputCity
+var city = userInputCity;
 $.ajax({
   url: "api/location-search?city=" + city,
   type: "GET"
 }).then(function(data) {
-  console.log(data)
-})
+  console.log(data);
+});
