@@ -97,3 +97,11 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+var city = userInputCity
+$.ajax({
+  url: "api/location-search?city=" + city,
+  type: "GET"
+}).then(function(data) {
+  console.log(data)
+})
