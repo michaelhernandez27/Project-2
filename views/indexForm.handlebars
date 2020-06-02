@@ -75,25 +75,30 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 alert alert-success">
-            <p>Order processed! Your package will arrive in X minutes.</p>
+            <p>Thank you for your order <span id="users-name"></span>! Your package will arrive in <span id="dest-time"></span>.</p>
         </div>
         <div class="col-md-3"></div>
     </div>
 </div>
 <script>
+    
     $(".alert").hide();
     $("#submit").on("click", function (e) {
         e.preventDefault();
+        var name = $("#name").val().trim();
         var city = $("#location")
             .val()
             .trim();
-            console.log(city);
+        console.log(city);
+        $("#users-name").text(name);
         $.ajax({
             url: "api/location-search/" + city,
             type: "GET"
         }).then(function (data) {
             console.log(data);
+            $("#dest-time").text(data.rows[0].elements[0].duration.text);
         });
         $(".alert").show();
+        $("input").reset();
     });
 </script>
