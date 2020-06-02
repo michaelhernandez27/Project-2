@@ -87,8 +87,9 @@
         var city = $("#location")
             .val()
             .trim();
+            console.log(city);
         $.ajax({
-            url: "api/location-search?city=" + city,
+            url: "api/location-search/" + city,
             type: "GET"
         }).then(function (data) {
             console.log(data);

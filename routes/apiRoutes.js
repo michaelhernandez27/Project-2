@@ -18,12 +18,13 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/api/location-search", function(req, res) {
+  app.get("/form/api/location-search/:city", function(req, res) {
     var city = req.params.city;
     var url =
       "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Philadelphia&destinations=" +
       city +
       "&key=AIzaSyB03QGGozKSq1zxY6mCsiG7tCmXqtDJZDk";
+    console.log(url);
     axios(url)
       .then(function(response) {
         console.log(response.data);
@@ -35,11 +36,11 @@ module.exports = function(app) {
   });
 
   // // Delete an example by id
-  app.delete("/api/products/:id", function(req, res) {
-    db.products
-      .destroy({ where: { id: req.params.id } })
-      .then(function(dbproducts) {
-        res.json(dbproducts);
-      });
-  });
+  // app.delete("/api/products/:id", function(req, res) {
+  //   db.products
+  //     .destroy({ where: { id: req.params.id } })
+  //     .then(function(dbproducts) {
+  //       res.json(dbproducts);
+  //     });
+  // });
 };
