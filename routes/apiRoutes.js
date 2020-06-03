@@ -10,9 +10,13 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.post("/api/products/:id", function(req, res) {
+  app.get("/api/products/:id", function(req, res) {
     db.products
-      .findOne({ where: { id: req.params.id } })
+      .findOne({
+        where: {
+          id: req.params.id
+        }
+      })
       .then(function(dbproducts) {
         res.json(dbproducts);
       });
@@ -35,12 +39,15 @@ module.exports = function(app) {
       });
   });
 
-  // // Delete an example by id
-  // app.delete("/api/products/:id", function(req, res) {
-  //   db.products
-  //     .destroy({ where: { id: req.params.id } })
-  //     .then(function(dbproducts) {
-  //       res.json(dbproducts);
-  //     });
-  // });
+  app.put("/api/products/:id", function(req, res) {
+    db.products
+      .update(req.body.inventory, {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(dbproducts) {
+        res.json(dbproducts);
+      });
+  });
 };
