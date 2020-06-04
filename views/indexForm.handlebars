@@ -36,13 +36,14 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 alert alert-success">
-            <p>Thank you for your order <span id="users-name"></span>! Your package will arrive in <span id="dest-time"></span>.</p>
+            <p>Thank you for your order <span id="users-name"></span>! Your package will arrive in <span
+                    id="dest-time"></span>.</p>
         </div>
         <div class="col-md-3"></div>
     </div>
 </div>
 <script>
-    
+
     $(".alert").hide();
     $("#submit").on("click", function (e) {
         e.preventDefault();
@@ -60,5 +61,11 @@
             $("#dest-time").text(data.rows[0].elements[0].duration.text);
         });
         $(".alert").show();
+        $.ajax({
+            method: "PUT",
+            url: "/api/products/:id"
+        }).then(function (data) {
+            //console.log(data);
+        })
     });
 </script>
