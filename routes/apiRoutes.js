@@ -40,28 +40,21 @@ module.exports = function(app) {
   });
 
   app.put("/api/products/:id", function(req, res) {
-    db.products
-      .findAll({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function(dbproducts) {
-        var newInventory = dbproducts.inventory - req.body.inventory;
-        db.products.update(
-          { inventory: req.body.inventory },
-          {
-            where: {
-              id: req.body.id
-            }
-          },
-          {
-            inventory: newInventory
+    db.products.findAll({ id: req.params.id }).then(function(dbproducts) {
+      var newInventory = dbproducts.inventory - req.body.inventory;
+      db.products.update(
+        {
+          where: {
+            id: req.params.id
           }
-        );
-        // console.log(req.body.inventory);
-        res.json(dbproducts);
-      });
+        },
+        {
+          inventory: newInventory
+        }
+      );
+      // console.log(req.body.inventory);
+      res.json(dbproducts);
+    });
   });
 };
 

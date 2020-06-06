@@ -61,11 +61,24 @@
             $("#dest-time").text(data.rows[0].elements[0].duration.text);
         });
         $(".alert").show();
+        //$.ajax({
+           // method: "PUT",
+            //url: "/api/products/:id"
+        //}).then(function (data) {
+           // console.log(data);
+        //})
+    var id = window.location.pathname;
+    for (var i = 0; i < id.length; i++) {
+        console.log(id[6]);
         $.ajax({
             method: "PUT",
-            url: "/api/products/:id"
+            url: "/api/products/" + id[6]
         }).then(function (data) {
-            //console.log(data);
-        })
+            console.log(data)
+            });
+    }
+    
+         //
+        
     });
 </script>
