@@ -41,13 +41,41 @@ module.exports = function(app) {
 
   app.put("/api/products/:id", function(req, res) {
     db.products
-      .update(req.body.inventory, {
+      .findAll({
         where: {
           id: req.params.id
         }
       })
       .then(function(dbproducts) {
+        var newInventory = dbproducts.inventory - req.body.inventory;
+        db.products.update(
+          { inventory: req.body.inventory },
+          {
+            where: {
+              id: req.body.id
+            }
+          },
+          {
+            inventory: newInventory
+          }
+        );
+        // console.log(req.body.inventory);
         res.json(dbproducts);
       });
   });
 };
+
+// app.put('/api/products/:id', function(req, res) {
+//   // req.body.id = 4
+//   // req.body.inventory -> quantity, name, location
+//   db.Product.findAll({id: req.body.id}).then(function(product) {
+//     var newQuantity = product.quantity - req.body.inventory.quantity
+//     db.Product.update({
+//       where: {
+//         id: req.body.id
+//       }
+//     },{
+//       quantity: newQuantity
+//     })
+//   })
+// })

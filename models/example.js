@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     "products",
     {
       name: DataTypes.STRING,
+      image: DataTypes.STRING,
       price: DataTypes.DECIMAL,
       inventory: DataTypes.INTEGER,
       rating: DataTypes.INTEGER
