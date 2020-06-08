@@ -12,8 +12,8 @@
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="inventory">Select Quantity</label>
-                    <input type="number" class="form-control" id="inventory">
+                    <label for="quantity">Select Quantity</label>
+                    <input type="number" class="form-control" id="quantity">
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -48,9 +48,9 @@
     $("#submit").on("click", function (e) {
         e.preventDefault();
         var name = $("#name").val().trim();
-        var inventory = $("#inventory").val().trim();
+        var quantity = $("#quantity").val().trim();
         var city = $("#location").val().trim();
-        console.log(inventory);
+        console.log(quantity);
         console.log(city);
         $("#users-name").text(name);
         $.ajax({
@@ -70,15 +70,17 @@
     var id = window.location.pathname;
     for (var i = 0; i < id.length; i++) {
         console.log(id[6]);
+        var newId = id[6];
         $.ajax({
-            method: "PUT",
-            url: "/api/products/" + id[6]
+            url: "/api/products/" + newId + "/" + quantity,
+            type: "PUT"
         }).then(function (data) {
+            if (data.inventory === 0) {
+                alert("Not enough in stock");
+            }
             console.log(data)
             });
     }
-    
-         //
         
     });
 </script>
