@@ -39,36 +39,33 @@ module.exports = function(app) {
       });
   });
 
-  app.put("/api/products/:id", function(req, res) {
-    db.products.findAll({ id: req.params.id }).then(function(dbproducts) {
-      var newInventory = dbproducts.inventory - req.body.inventory;
-      db.products.update(
-        {
-          where: {
-            id: req.params.id
-          }
-        },
-        {
-          inventory: newInventory
+  app.put("/api/products/:id/:quantity", function(req, res) {
+    db.products
+      .findOne({
+        where: {
+          id: req.params.id
         }
-      );
-      // console.log(req.body.inventory);
-      res.json(dbproducts);
-    });
+      })
+      .then(function(dbproducts) {
+        var newInventory = dbproducts.inventory - req.params.quantity;
+        console.log(req.params.quantity);
+        console.log(newInventory);
+        console.log(dbproducts.inventory);
+        if (dbproducts.inventory >= req.params.quantity) {
+          db.products.update(
+            {
+              inventory: newInventory
+            },
+            {
+              where: {
+                id: req.params.id
+              }
+            }
+          );
+          res.json(dbproducts);
+        } else {
+          console.log("Not enough in stock");
+        }
+      });
   });
 };
-
-// app.put('/api/products/:id', function(req, res) {
-//   // req.body.id = 4
-//   // req.body.inventory -> quantity, name, location
-//   db.Product.findAll({id: req.body.id}).then(function(product) {
-//     var newQuantity = product.quantity - req.body.inventory.quantity
-//     db.Product.update({
-//       where: {
-//         id: req.body.id
-//       }
-//     },{
-//       quantity: newQuantity
-//     })
-//   })
-// })
