@@ -1,5 +1,6 @@
 var db = require("../models");
 var axios = require("axios");
+var keys = require("../keys");
 
 module.exports = function(app) {
   // Get all examples
@@ -27,7 +28,8 @@ module.exports = function(app) {
     var url =
       "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Philadelphia&destinations=" +
       city +
-      "&key=AIzaSyB03QGGozKSq1zxY6mCsiG7tCmXqtDJZDk";
+      "&key=" +
+      keys.location.secret;
     console.log(url);
     axios(url)
       .then(function(response) {
